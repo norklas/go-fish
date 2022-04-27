@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS  go_fish;
+
+CREATE DATABASE  go_fish;
