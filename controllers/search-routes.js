@@ -3,7 +3,7 @@ const sequelize = require("../config/connection");
 const { Post, User, Comment } = require("../models");
 const { Op } = require("sequelize");
 
-router.get(":/post_text", (req, res) => {
+router.get("/:post_text", (req, res) => {
   Post.findAll({
     limit: 10,
     where: {
@@ -11,7 +11,7 @@ router.get(":/post_text", (req, res) => {
         [Op.like]: "%" + req.params.post_text + "%", // we haven't seen this code yet, but Op stands for Operator,  it will find post_text like %whateverissearched%
       },
     },
-    attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
+    attributes: ["id", "post_text", "user_id", "created_at"],
     include: [
       {
         model: Comment,
@@ -36,7 +36,8 @@ router.get(":/post_text", (req, res) => {
       }
 
       const posts = dbSearchData.map((post) => post.get({ plain: true }));
-      res.render("search", { posts }); // again we should check loggedIn status here if we want to
+      // res.render("search", { posts }); // again we should check loggedIn status here if we want to
+      res.json(posts);
     })
     .catch((err) => {
       console.log(err);
