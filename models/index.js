@@ -2,7 +2,7 @@ const User = require('./User');
 const Post = require('./Post');
 const Image = require('./Image')
 const Comment = require('./Comment');
-const Like = require('./Like');
+const Vote = require('./Vote');
 
 // user-post associations
 User.hasMany(Post, {
@@ -36,48 +36,48 @@ Comment.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-// user-like associations
-User.hasMany(Like, {
+// user-vote associations
+User.hasMany(Vote, {
   foreignKey: 'user_id'
 });
-Like.belongsTo(User, {
+Vote.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-// post-like associations
-Post.hasMany(Like, {
+// post-vote associations
+Post.hasMany(Vote, {
   foreignKey: 'post_id'
 });
-Like.belongsTo(Post, {
+Vote.belongsTo(Post, {
   foreignKey: 'post_id'
 });
 User.belongsToMany(Post, {
-  through: Like, 
-  as: 'liked_posts',
+  through: Vote, 
+  as: 'voted_posts',
   foreignKey: 'post_id"'
 });
 Post.belongsToMany(User, {
-  through: Like, 
-  as: 'liked_posts',
+  through: Vote, 
+  as: 'voted_posts',
   foreignKey: 'post_id"'
 });
 
-// image-like associations
-Image.hasMany(Like, {
+// image-vote associations
+Image.hasMany(Vote, {
   foreignKey: 'image_id'
 });
-Like.belongsTo(Image, {
+Vote.belongsTo(Image, {
   foreignKey: 'image_id'
 });
 User.belongsToMany(Post, {
-  through: Like, 
-  as: 'liked_images',
+  through: Vote, 
+  as: 'voted_images',
   foreignKey: 'image_id"'
 });
 Post.belongsToMany(User, {
-  through: Like, 
-  as: 'liked_images',
+  through: Vote, 
+  as: 'voted_images',
   foreignKey: 'image_id"'
 });
 
-module.exports = { User, Post, Image, Like, Comment };
+module.exports = { User, Post, Image, Vote, Comment };
