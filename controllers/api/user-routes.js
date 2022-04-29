@@ -34,4 +34,34 @@ router.post('/', (req, res) => {
   });
 });
 
+router.post('/login', (req, res) => {
+  User.findOne({
+    where: {
+      email: req.body.email
+    }
+  }).then(dbUserData => {
+    if (!dbUserData) {
+      res.status(400).json({ message: `No user found for ${req.body.email}`});
+      return;
+    }
+
+    // validate password with helper
+    // session code goes here
+
+    res.json({ user: dbUserData, message: 'Login successful' });
+  });
+});
+
+router.post('/logout', (req, res) => {
+  console.log('logout');
+  // if (req.session.loggedIn) {
+  //   req.session.destroy(() => {
+  //     res.status(204).end();
+  //   });
+  // }
+  // else {
+  //   res.status(404).end();
+  // }
+});
+
 module.exports = router;

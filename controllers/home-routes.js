@@ -1,9 +1,8 @@
-const sequelize = require("../config/connection");
 const { Post, User, Comment } = require("../models");
 const router = require("express").Router();
 
 // Rendering all posts to homepage
-router.get("/", (req, res) => {
+router.get("/newsfeed", (req, res) => {
   Post.findAll({
     attributes: ["id", "title", "post_text", "created_at"],
     include: [
@@ -23,8 +22,8 @@ router.get("/", (req, res) => {
   })
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true })); // passing a single post object into homepage template
-      // res.render("homepage", { posts }); // this will need a loggedIn check if we want to hide posts unless logged in, so it would be { posts, loggedIn: req.session.loggedIn }
-      res.json(posts);
+      res.render("newsfeed", { posts }); // this will need a loggedIn check if we want to hide posts unless logged in, so it would be { posts, loggedIn: req.session.loggedIn }
+      // res.json(posts);
     })
     .catch((err) => {
       console.log(err);
@@ -34,11 +33,19 @@ router.get("/", (req, res) => {
 
 // placeholder redirect route, redirects to homepage once they log in. will not work until we get session implemented
 router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/");
-    return;
-  }
+  // if (req.session.loggedIn) {
+  //   res.redirect("/");
+  //   return;
+  // }
   res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+  // if (req.session.loggedIn) {
+  //   res.redirect("/");
+  //   return;
+  // }
+  res.render("signup");
 });
 
 module.exports = router;

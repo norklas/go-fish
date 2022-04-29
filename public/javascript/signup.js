@@ -7,6 +7,8 @@ async function signupFormHandler(event) {
   const password = document.querySelector('#password').value.trim();
   const confirmPassword = document.querySelector('#confirmPassword').value.trim();
 
+  console.log(email);
+
   if (email != confirmEmail) {
     alert('Email and confirm email must match');
   } else if (password != confirmPassword) {
