@@ -1,4 +1,13 @@
-.flex-row {
+section {
   display: flex;
   flex-wrap: wrap;
+}
+
+#new-post {
+  display: flex;
+  flex-direction: column;
+}
+
+#new-text {
+  height: 180px;
 }
