@@ -1,10 +1,21 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require("../../models");
+const { Post, User, Comment, Vote } = require("../../models");
 
 router.get("/", (req, res) => {
   Post.findAll({
     order: [["created_at", "DESC"]],
-    attributes: ["id", "title", "post_text", "created_at"],
+    attributes: [
+      "id",
+      "title",
+      "post_text",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
+        ),
+        "vote_count",
+      ],
+    ],
     include: [
       {
         model: Comment,
@@ -38,7 +49,18 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ["id", "title", "post_text", "created_at"],
+    attributes: [
+      "id",
+      "title",
+      "post_text",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
+        ),
+        "vote_count",
+      ],
+    ],
     include: [
       {
         model: Comment,
@@ -74,6 +96,16 @@ router.post("/", (req, res) => {
     user_id: req.body.user_id,
   })
     .then((dbPostData) => res.json(dbPostData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// PUT route for the like feature
+router.put("/like", (req, res) => {
+  Post.vote({ ...req.body, user_id }, { Vote, Comment, User })
+    .then((updatedLikeData) => res.json(updatedLikeData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);

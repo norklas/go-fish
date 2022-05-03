@@ -11,14 +11,25 @@ router.get("/:post_text", (req, res) => {
         [Op.like]: "%" + req.params.post_text + "%", // we haven't seen this code yet, but Op stands for Operator,  it will find post_text like %whateverissearched%
       },
     },
-    attributes: ["id", "post_text", "user_id", "created_at"],
+    attributes: [
+      "id",
+      "post_text",
+      "user_id",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
+        ),
+        "vote_count",
+      ],
+    ],
     include: [
       {
         model: Comment,
         attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ["username"],
+          attributes: ["username", "id"],
         },
       },
       {

@@ -4,7 +4,18 @@ const router = require("express").Router();
 // Rendering all posts to homepage
 router.get("/newsfeed", (req, res) => {
   Post.findAll({
-    attributes: ["id", "title", "post_text", "created_at"],
+    attributes: [
+      "id",
+      "title",
+      "post_text",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
+        ),
+        "vote_count",
+      ],
+    ],
     include: [
       {
         model: Comment,
@@ -16,7 +27,7 @@ router.get("/newsfeed", (req, res) => {
       },
       {
         model: User,
-        attributes: ["username"],
+        attributes: ["username", "id"],
       },
     ],
   })
