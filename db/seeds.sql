@@ -1,9 +1,5 @@
 INSERT INTO user (username, email, password) VALUES 
-<<<<<<< HEAD
 	("longJohnSilver", "jsilver@gmail.com", "password");
-=======
-	("longJohnSilver", "LJSilver@gmail.com", "password");
->>>>>>> develop
 
 INSERT INTO post (title, post_text, user_id, created_at, updated_at) VALUES 
   ("Foil-Wrapped Fillets", "This simple but effective method involves cleaning and gutting the fish, stuffing it with herbs and veggies and wrapping it in aluminum foil. Then, place the pouch next to hot coals, flip it often and check it periodically to avoid overcooking your meal.", "1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
