@@ -34,8 +34,8 @@ router.get("/", (req, res) => {
   })
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true })); // passing a single post object into homepage template
-      // res.render("homepage", { posts }); // this will need a loggedIn check if we want to hide posts unless logged in, so it would be { posts, loggedIn: req.session.loggedIn }
-      res.json(posts);
+      res.render("homepage", { posts }); // this will need a loggedIn check if we want to hide posts unless logged in, so it would be { posts, loggedIn: req.session.loggedIn }
+      //res.json(posts);
     })
     .catch((err) => {
       console.log(err);
