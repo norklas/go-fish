@@ -104,7 +104,7 @@ router.post("/", (req, res) => {
 
 // PUT route for the like feature
 router.put("/like", (req, res) => {
-  Post.vote({ ...req.body, user_id }, { Vote, Comment, User })
+  Post.upvote({ ...req.body, user_id }, { Vote, Comment, User })
     .then((updatedLikeData) => res.json(updatedLikeData))
     .catch((err) => {
       console.log(err);
