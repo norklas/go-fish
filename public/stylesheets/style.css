@@ -1,4 +1,4 @@
-.flex-row {
+section {
   display: flex;
   flex-wrap: wrap;
 }
