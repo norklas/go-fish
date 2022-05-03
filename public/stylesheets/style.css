@@ -3,11 +3,15 @@ section {
   flex-wrap: wrap;
 }
 
-#new-post {
+#new-post div {
   display: flex;
   flex-direction: column;
 }
 
 #new-text {
   height: 180px;
+}
+
+.tile {
+  margin: 20px;
 }
