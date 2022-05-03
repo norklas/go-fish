@@ -2,7 +2,8 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Post extends Model {
-  static vote(body, models) {
+  //based on the post model and not an instance method
+  static upvote(body, models) {
     return models.Vote.create({
       user_id: body.user_id,
       post_id: body.post_id,
@@ -45,7 +46,7 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1],
+        len: [4, 150],
       },
     },
     user_id: {
