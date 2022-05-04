@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  :root {
+    --primary-color: #6f7c12;
+    --secondary-color: #000;
+    --tertiary-color: #000;
+    --primary-color-transparent: #6f7c12;
+    --secondary-color-transparent: #000000;
+  }
+  
+  body {
+    color: var(--tertiary-color);
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  .topheader {
+    padding: 20px 40px 20px 20px;
+    color: #6f7c12;
+    display: flex;
+    flex-wrap: wrap;
+    position:sticky;
+    background-color: #6f7c12;
+  }
+
+  .h1{
+    padding-left: 50px;
+    padding-top: 40px;
+}
+
+
+  .h2 {
+      padding-left: 50px;
+      padding-top: 40px;
+  }
+
+  .search {
+      padding-left: 1200px;
+      padding-top: 40px;
+      
+  }
+
+  .img-logo {
+      width: 100px;
+      height: 100px;
+
+  }
+  .card {
+    text-align: center;
+    
+}
+
+footer {
+  padding-top: 600px;
+}
+
+body {
+  background: #dee98d;
+}

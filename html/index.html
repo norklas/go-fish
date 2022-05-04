@@ -5,78 +5,61 @@
     <meta charset="UTF-8" />
     <meta http-equiv="" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="" href=""
-        integrity=""
-        crossorigin="" referrerpolicy="" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="styles.css">
     <title>Go Fish</title>
 </head>
 
 <body class="content">
-    <header class="">
-        <div class="">
-            <div>
-                 <h1 class="">Go Fish</h1>
+    <header>
+        <section class="topheader">
+ 
+            <img class="img-logo" src="img/GO FISH.png" alt="logo">
+       
+            <div class="h1">
+                 <a href=signup.html><h2>Sign Up</h2></a>
             </div>
-        </div>
-        
-        <section>
-            <div>
-                <button type="submit">
-                  Sign-Up
-                </button>
+            <div class="h2">
+                <a href=login.html><h2>Login</h2></a>
             </div>
-    
-            <div>
-                <button type="submit">
-                  Login
-                </button>
-            </div>
-            </section>
-    
-        <div class="" id="Feed">
+            <div class="search"> 
+                  <input placeholder="Search"/>
+                  <button type="submit" class=" text-white font-bold rounded-full text-3xl">Search</button>
+              </div>
+        </header>
+       
+        <main>
+       <!--<div class="" id="Feed">
             <h2 class="">Feed</h2>
             <div id="Feed-button-container" class="">
             </div>
         </div>
-
         <div class="" id="Photos">
+            <a href="photos.html">
             <h2 class="">Photos</h2>
             <div id="Photo-button-container" class="">
-
             </div>
-        </div>
-
-        <!--<div class="" id="Gear">
-            <h2 class="">Gear</h2>
-            <div id="Gear-button-container" class="">
-
-            </div>
-        </div>-->
-
-
-    </header>
-
-    <main>
+            </a>
+        </div>--> 
+    
         <section class="" id="">
-            <div class="">
-                <h2 class="">News Feed</h2>
-                <div class="">
+            <div class="card">
+                <div class="bg-sky-100">
+                <h2 class="card-header text-uppercase text-center bg-info text-4xl text-black">News Feed</h2>
+                <div class="card">
                     <form id="New-Post">
                         <input type="text" placeholder="Title" placeholder="Post-Title" name="" id="" class="" />
                         <input type="text" placeholder="Post Description" placeholder="Post-Details" name="" id="" class="" />
                         <button type="submit" class="">
                             Post
                         </button>
+                        <div id=""class="">
+                            <h3 class="">Recent Posts</h3>
+                            
+                        </div>
                     </form>
                 </div>
-            </div>
-            
-                <!-- Posts' Card Conatiners-->
-                <div id=""class="">
-                    <h3 class="">Recent Posts</h3>
-                    
                 </div>
+            </div>
         </section>
     </main>
         <footer class="">
