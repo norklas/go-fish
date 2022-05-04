@@ -1,4 +1,4 @@
-section {
+#newsfeed {
   display: flex;
   flex-wrap: wrap;
 }
@@ -8,10 +8,11 @@ section {
   flex-direction: column;
 }
 
-#new-text {
+#post-text {
   height: 180px;
 }
 
 .tile {
   margin: 20px;
+  flex: 1 0 0;
 }

@@ -1,27 +1,16 @@
-<section class="bg-primary text-white container-fluid">
-  <form id="new-post" class="tile col-12 col-md-6 col-lg-3">
+<div class="bg-primary text-white container-fluid" id="newsfeed">
+  <section id="new-post" class="tile col-12 col-md-6 col-lg-3">
     <div>
-      <input type="text" placeholder="Title" id="new-title" />
-      <input type="text" placeholder="Post Description" id="new-text" />
+      <input type="text" placeholder="Enter title" name="post-title" />
+      <input type="text" placeholder="Enter text here to create a new post" name="post-text" id="post-text"/>
     </div>
-    <div>
-      <button type="submit" id="submit-post-btn">
-          Post
-      </button>
-    </div>
-  </form>
-  <ol>
-    <li>
-      <article class="tile col-12 col-md-6 col-lg-3">
-        <h3>Foil-Wrapped Fillets</h3>
-        <p>This simple but effective method involves cleaning and gutting the fish, stuffing it with herbs and veggies and wrapping it in aluminum foil. Then, place the pouch next to hot coals, flip it often and check it periodically to avoid overcooking your meal</p>
-        <h6>Posted by longJohnSilver on 4/25/2022</h6>
-        <button type="submit" id="like-btn">Like</button>
-      </article>
-    </li>
+    <button type="submit">Post</button>
+  </section>
     {{#each posts as |post|}}
-      <li>
+      <section class="tile col-12 col-md-6 col-lg-3">
         {{> post-info post }}
-      </li>
+      </section>
     {{/each}}
- </section>
+ </div>
+
+ <script src="/javascript/add-post.js"
