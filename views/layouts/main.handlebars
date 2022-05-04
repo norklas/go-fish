@@ -13,9 +13,9 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Go Fish!</a>
+                <a id="title" href="#">Go Fish!</a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav">
                         {{!-- {{#unless loggedIn}} --}}
@@ -35,12 +35,12 @@
                 </div>
                 <form class="d-flex" id="search-form">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit" id="search-btn">Go</button>
+                    <button class="btn btn-secondary" type="submit" id="search-btn">Go</button>
                 </form>
             </div>
         </nav>
     </header>
-    <main>
+    <main class="bg-dark">
         {{{ body }}}
     </main>
 

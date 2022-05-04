@@ -1,13 +1,13 @@
-<div class="bg-primary text-white container-fluid" id="newsfeed">
-  <section id="new-post" class="tile col-12 col-md-6 col-lg-3">
+<div class="text-white container-fluid" id="newsfeed">
+  <section id="new-post" class="tile col-12  col-lg-3">
     <div>
-      <input type="text" placeholder="Enter title" name="post-title" />
+      <input type="text" placeholder="Enter title" name="post-title" id="post-title" />
       <input type="text" placeholder="Enter text here to create a new post" name="post-text" id="post-text"/>
     </div>
-    <button type="submit">Post</button>
+    <button type="submit" class="btn btn-secondary">Post</button>
   </section>
     {{#each posts as |post|}}
-      <section class="tile col-12 col-md-6 col-lg-3">
+      <section class="tile col-12 col-lg-3">
         {{> post-info post }}
       </section>
     {{/each}}
