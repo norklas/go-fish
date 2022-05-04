@@ -24,4 +24,4 @@ async function likeClickHandler(event) {
 }
 
 // need like button to have id of like-btn
-document.querySelector(".like-btn").addEventListener("click", likeClickHandler);
+document.querySelector("#like-btn").addEventListener("click", likeClickHandler);
