@@ -47,8 +47,8 @@ router.get("/:post_text", (req, res) => {
       }
 
       const posts = dbSearchData.map((post) => post.get({ plain: true }));
-      // res.render("search", { posts }); // again we should check loggedIn status here if we want to
-      res.json(posts);
+      res.render("search", { posts }); // again we should check loggedIn status here if we want to
+      // res.json(posts);
     })
     .catch((err) => {
       console.log(err);

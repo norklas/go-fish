@@ -1,8 +1,13 @@
+const res = require("express/lib/response");
+
 async function searchFormHandler(event) {
   event.preventDefault();
 
   // reference from main.handlebar: id="search-input" name="search-text"
-  const search = document.querySelector('input[name="search-text"]').value;
+  const search = document.querySelector('input[name="search"]').value.trim();
+
+  console.log('go clicked');
+  console.log(search);
 
   // if search exists, then do GET fetch
   if (search) {
