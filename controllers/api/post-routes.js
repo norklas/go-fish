@@ -92,13 +92,18 @@ router.post("/", passportAuth, (req, res) => {
 });
 
 // PUT route for the like feature
-router.put("/like", (req, res) => {
-  Post.upvote({ ...req.body, user_id }, { Vote, Comment, User })
-    .then((updatedLikeData) => res.json(updatedLikeData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+router.put("/like", passportAuth, (req, res) => {
+  if (req.session.passport) {
+    Post.upvote(
+      { ...req.body, user_id: req.session.passport.user.id },
+      { Vote, Comment, User }
+    )
+      .then((updatedLikeData) => res.json(updatedLikeData))
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
 });
 
 module.exports = router;
