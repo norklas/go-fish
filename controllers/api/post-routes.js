@@ -1,6 +1,7 @@
 const sequelize = require("../../config/connection");
 const router = require("express").Router();
 const { Post, User, Comment, Vote } = require("../../models");
+const passportAuth = require("../../utils/auth");
 
 router.get("/", (req, res) => {
   Post.findAll({
@@ -54,16 +55,12 @@ router.get("/:id", (req, res) => {
     ],
     include: [
       {
-        model: Comment,
-        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
-        include: {
-          model: User,
-          attributes: ["username"],
-        },
-      },
-      {
         model: User,
         attributes: ["username"],
+      },
+      {
+        model: Comment,
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
       },
     ],
   })
@@ -80,11 +77,12 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/", passportAuth, (req, res) => {
+  //expects {post_text, user_id}
   Post.create({
     title: req.body.title,
     post_text: req.body.post_text,
-    user_id: req.body.user_id,
+    user_id: req.session.passport.user.id,
   })
     .then((dbPostData) => res.json(dbPostData))
     .catch((err) => {
