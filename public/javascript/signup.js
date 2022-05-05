@@ -1,13 +1,13 @@
 async function signupFormHandler(event) {
   event.preventDefault();
 
-  const email = document.querySelector("#email").value.trim();
-  const username = document.querySelector("#username").value.trim();
-  const password = document.querySelector("#password").value.trim();
+  const email = document.querySelector("#email-signup").value.trim();
+  const username = document.querySelector("#username-signup").value.trim();
+  const password = document.querySelector("#password-signup").value.trim();
   const confirmPassword = document
-    .querySelector("#confirmPassword")
+    .querySelector("#password-signup")
     .value.trim();
-  
+
   if (password != confirmPassword) {
     alert("Password and confirm password must match");
   } else if (email && password && confirmPassword && username) {
@@ -30,5 +30,5 @@ async function signupFormHandler(event) {
 }
 
 document
-  .querySelector(".signup-form")
+  .querySelector("#form-signup")
   .addEventListener("submit", signupFormHandler);

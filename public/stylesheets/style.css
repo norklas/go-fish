@@ -130,16 +130,18 @@ input[name="comment-body"]::-webkit-input-placeholder {
 }
 
 #post-card,
-#comment-card,
-#password-signup,
-#confirmPassword,
-#username-signup {
+#comment-card {
   background-color: var(--primary-color);
 }
 
+#email-login,
+#password-login {
+  background-color: var(--tertiary-color);
+}
+
 #email-signup,
-#email-input,
-#password-input {
+#password-signup,
+#username-signup {
   background-color: var(--tertiary-color);
 }
 
@@ -181,7 +183,8 @@ input[name="comment-body"]::-webkit-input-placeholder {
   color: var(--primary-color);
 }
 
-#login-form-card {
+#form-login,
+#form-signup {
   background-color: var(--primary-color);
 }
 
