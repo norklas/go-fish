@@ -1,5 +1,19 @@
 const router = require("express").Router();
 const { User, Post, Vote, Comment } = require("../../models");
+const passportAuth = require("../../utils/auth");
+const passport = require("../../utils/passport");
+const LocalStrategy = require("passport-local").Strategy;
+
+router.get("/", (req, res) => {
+  User.findAll({
+    attributes: { exclude: ["[password"] },
+  })
+    .then((dbUserData) => res.json(dbUserData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.get("/:id", (req, res) => {
   User.findOne({
@@ -42,42 +56,34 @@ router.post("/", (req, res) => {
     username: req.body.username,
     email: req.body.email,
     password: req.body.password,
-  })
-    .then((dbUserData) => res.json(dbUserData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
-router.post('/login', (req, res) => {
-  User.findOne({
-    where: {
-      email: req.body.email
-    }
-  }).then(dbUserData => {
-    if (!dbUserData) {
-      res.status(400).json({ message: `No user found for ${req.body.email}`});
-      return;
-    }
-
-    // validate password with helper
-    // session code goes here
-
-    res.json({ user: dbUserData, message: 'Login successful' });
+  }).then((dbUserData) => {
+    res.redirect("/login");
   });
 });
 
-router.post('/logout', (req, res) => {
-  console.log('logout');
-  // if (req.session.loggedIn) {
-  //   req.session.destroy(() => {
-  //     res.status(204).end();
-  //   });
-  // }
-  // else {
-  //   res.status(404).end();
-  // }
+// login using passport methods
+router.post("/login", passport.authenticate("local"), function (req, res) {
+  res.render("newsfeed", { loggedIn: req.session.passport.user.id });
+});
+
+// router.post("/login", (req, res) => {
+//   User.findOne({
+//     where: {
+//       email: req.body.email,
+//     },
+//   }).then((dbUserData) => {
+//     if (!dbUserData) {
+//       res.status(400).json({ message: `No user found for ${req.body.email}` });
+//       return;
+//     }
+//     res.json({ user: dbUserData, message: "Login successful" });
+//   });
+// });
+
+// Logout using passport methods
+router.post("/logout", function (req, res) {
+  req.logout();
+  res.redirect("/newsfeed");
 });
 
 module.exports = router;

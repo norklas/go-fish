@@ -1,4 +1,95 @@
-.flex-row {
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #6f7c12;
+  --secondary-color: #000;
+  --tertiary-color: #dee98d;
+}
+
+body {
+  color: var(--secondary-color);
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+header {
+  padding: 20px 40px 20px 20px;
+  color: var(--primary-color);
   display: flex;
   flex-wrap: wrap;
+  position:sticky;
+  background-color: var(--primary-color);
+  justify-content: space-between;
+}
+
+.h1{
+  padding-left: 50px;
+  padding-top: 40px;
+}
+
+
+.h2 {
+    padding-left: 50px;
+    padding-top: 40px;
+}
+
+#search-form {
+    float: right;
+    
+}
+
+.img-logo {
+    width: 100px;
+    height: 100px;
+
+}
+.card {
+  text-align: center;
+  
+}
+
+footer {
+background-color: var(--primary-color);
+}
+
+footer div {
+  margin-left: 20px;
+}
+
+main {
+background: var(--tertiary-color);
+}
+
+#logoutBtn, #search-btn {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  color: var(--primary-color);
+}
+
+.center {
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+}
+
+#new-post div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 5px 0;
+}
+
+#new-post div input {
+  height: 180px;
+}
+
+.rounded {
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.column {
+  flex-direction: column;
+  display: flex;
+  width: fit-content;
 }
