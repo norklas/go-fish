@@ -44,10 +44,10 @@ Post.init(
       },
     },
     post_text: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(2000),
       allowNull: false,
       validate: {
-        len: [4, 150],
+        len: [4],
       },
     },
     user_id: {
