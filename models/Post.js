@@ -36,9 +36,6 @@ Post.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    title: {
-      type: DataTypes.STRING
-    },
     post_text: {
       type: DataTypes.STRING(2000),
       allowNull: false,

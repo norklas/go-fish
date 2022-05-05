@@ -1,11 +1,11 @@
 async function logoutBtnHandler() {
   const response = await fetch("/api/users/logout", {
-    method: "post",
+    method: "POST",
     headers: { "Content-Type": "application/json" },
   });
 
   if (response.ok) {
-    document.location.replace("/newsfeed");
+    document.location.replace("/");
   } else {
     alert(response.statusText);
   }

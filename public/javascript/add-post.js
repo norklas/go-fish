@@ -2,7 +2,7 @@ async function newPostHandler(event) {
   event.preventDefault();
 
   // need input to have name of post_text
-   const post_text = document
+  const post_text = document
     .querySelector('input[name="post-text"]')
     .value.trim();
 
@@ -17,7 +17,7 @@ async function newPostHandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace("/newsfeed");
+    document.location.replace("/");
   } else {
     alert(response.statusText);
   }

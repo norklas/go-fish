@@ -4,11 +4,10 @@ const { session } = require("passport");
 const router = require("express").Router();
 
 // Rendering all posts to homepage
-router.get("/newsfeed", (req, res) => {
+router.get("/", (req, res) => {
   Post.findAll({
     attributes: [
       "id",
-      "title",
       "post_text",
       "created_at",
       [
@@ -66,37 +65,42 @@ router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
-router.get('/posts/:id', (req, res) => {
-  console.log("single-post route called")
+router.get("/posts/:id", (req, res) => {
+  console.log("single-post route called");
   console.log(req.params);
   Post.findOne({
     where: {
-      id: req.params.id
+      id: req.params.id,
     },
     attributes: [
-      'id',
-      'post_text',
-      'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      "id",
+      "post_text",
+      "created_at",
+      [
+        sequelize.literal(
+          "(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
+        ),
+        "vote_count",
+      ],
     ],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ["id", "comment_text", "post_id", "user_id", "created_at"],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ["username"],
+        },
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ["username"],
+      },
+    ],
   })
-    .then(dbPostData => {
+    .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+        res.status(404).json({ message: "No post found with this id" });
         return;
       }
 
@@ -105,16 +109,16 @@ router.get('/posts/:id', (req, res) => {
 
       // defining log-in status
       let loginStatus;
-        if (typeof req.session.passport != 'undefined') {
-          loginStatus =  req.session.passport.user;
-        } else {
-            loginStatus = false;
-        }   
-      
+      if (typeof req.session.passport != "undefined") {
+        loginStatus = req.session.passport.user;
+      } else {
+        loginStatus = false;
+      }
+
       // pass data to template
-      res.render('single-post', { post, loggedIn: loginStatus });
+      res.render("single-post", { post, loggedIn: loginStatus });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });

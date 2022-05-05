@@ -83,7 +83,7 @@ router.post("/login", passport.authenticate("local"), function (req, res) {
 // Logout using passport methods
 router.post("/logout", function (req, res) {
   req.logout();
-  res.redirect("/newsfeed");
+  res.redirect("/");
 });
 
 module.exports = router;

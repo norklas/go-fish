@@ -4,7 +4,7 @@ const routes = require("./controllers");
 const path = require("path");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const helpers = require("./utils/helpers")
+const helpers = require("./utils/helpers");
 
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({ helpers });

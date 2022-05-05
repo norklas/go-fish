@@ -1,20 +1,27 @@
-<div class="container-fluid">
+<div class="container-fluid row justify-content-center">
   {{#if loggedIn}}
-  <section id="new-post" class="center col-12  col-lg-3">
-    <div>
-      <input type="text" placeholder="What's on your mind" name="post-text" id="post-text"/>
-      <button type="submit">Post</button>  
-    </div>
-  </section>
-  {{/if}}  
-  
-  <section class="center">
-    <h3 class="center"> News Feed</h3>
-    {{#each posts as |post|}}
-    {{> post-info post }}
-  {{/each}}
-  </section>
-</div>
+  <div class="row justify-content-center mt-3">
+    <form id="new-post">
+      <div class="row justify-content-center">
+        <input type="text" placeholder="What's on your mind" name="post-text" id="post-text"
+          class="col-8 rounded border-0 shadow" />
+        <button type="submit" class="btn btn-primary mt-1 col-5 py-1 border-0 shadow" id="post-btn">Post</button>
+      </div>
+    </form>
+  </div>
+  {{/if}}
 
-<script src="/javascript/add-post.js"></script>
-<script src="/javascript/search.js"></script>
+  <div>
+    <h3 class="text-center my-3">News Feed</h3>
+  </div>
+
+  <ol class="h-100">
+    {{#each posts as |post| }}
+    <ul>
+      {{> post-info post }}
+    </ul>
+    {{/each}}
+  </ol>
+
+  <script src="/javascript/add-post.js"></script>
+  <script src="/javascript/search.js"></script>
