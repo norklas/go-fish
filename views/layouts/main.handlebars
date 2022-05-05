@@ -13,9 +13,9 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Go Fish!</a>
+                <a href="/newsfeed"><img class="img-logo" src="/img/go-fish.png" alt="logo"></a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav">
                         {{#unless loggedIn}}
@@ -36,7 +36,7 @@
                 <form class="d-flex" id="search-form">
                     <input class="form-control me-2" type="search" name="search-text" placeholder="Search"
                         aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit" id="search-btn">Go</button>
+                    <button type="submit" id="search-btn" class="btn btn-dark">Go</button>
                 </form>
             </div>
         </nav>
@@ -45,7 +45,7 @@
         {{{ body }}}
     </main>
 
-    <footer class="navbar navbar-expand-lg navbar-dark bg-info">
+    <footer class="navbar navbar-expand-lg navbar-dark">
         <h2>Made By Group 6</h2>
         <div>&copy; Go Fish 2022</div>
     </footer>
