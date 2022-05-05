@@ -1,6 +1,7 @@
-<article class="tile col-12 col-md-6 col-lg-3">
-  <h3>{{title}}</h3>
+<article>
+  <h6>{{user.username}}</h6>
   <p>{{post_text}}</p>
+  <h6>{{vote_count}} {{format_plural "vote" vote_count}}  &centerdot;  {{comments.length}} {{format_plural "comment" comments.length}}  &centerdot;  Posted on {{format_date created_at}}  &centerdot;  <span><a href=`/single-post/${id}`</span>View Post</a></span></h6>
   <h6>Posted by {{user.username}} on {{created_at}}</h6>
-  <button type="submit" id="like-btn">Like</button>
+  
 </article>

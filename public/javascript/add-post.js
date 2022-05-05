@@ -2,15 +2,13 @@ async function newPostHandler(event) {
   event.preventDefault();
 
   // need input to have name of post_text
-  const title = document.querySelector('input[name="post-title"]').value.trim();
-  const post_text = document
+   const post_text = document
     .querySelector('input[name="post-text"]')
     .value.trim();
 
   const response = await fetch(`/api/posts`, {
     method: "POST",
     body: JSON.stringify({
-      title,
       post_text,
     }),
     headers: {

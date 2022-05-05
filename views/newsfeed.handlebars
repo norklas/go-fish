@@ -1,22 +1,18 @@
-<section class="container-fluid">
-  <form id="new-post" class="tile col-12 col-md-6 col-lg-3">
+<div class="container-fluid">
+  {{#if loggedIn}}
+  <section id="new-post" class="center col-12  col-lg-3">
     <div>
-      <input type="text" placeholder="Title" name="post-title" />
-      <input type="text" placeholder="Post Description" name="post-text" />
+      <input type="text" placeholder="Enter text here to create a new post" name="post-text" id="post-text"/>
+      <button type="submit">Post</button>  
     </div>
-    <div>
-      <button type="submit" id="submit-post-btn">
-        Post
-      </button>
-    </div>
-  </form>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post }}
-    </li>
-    {{/each}}
-</section>
+  </section>
+  {{/if}}
+  {{#each posts as |post|}}
+  <section class="center">
+    {{> post-info post }}
+  </section>
+  {{/each}}
+</div>
 
 <script src="/javascript/add-post.js"></script>
 <script src="/javascript/search.js"></script>

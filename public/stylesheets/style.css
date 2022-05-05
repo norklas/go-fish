@@ -60,3 +60,25 @@ footer div {
 main {
 background: var(--tertiary-color);
 }
+
+#logoutBtn, #search-btn {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  color: var(--primary-color);
+}
+
+.center {
+  margin: auto;
+  width: 33%;
+  padding: 10px;
+}
+
+#new-post div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 5px 0;
+}
+
+#new-post div input {
+  height: 180px;
+}

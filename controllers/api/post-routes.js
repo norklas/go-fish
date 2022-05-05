@@ -80,7 +80,6 @@ router.get("/:id", (req, res) => {
 router.post("/", passportAuth, (req, res) => {
   //expects {post_text, user_id}
   Post.create({
-    title: req.body.title,
     post_text: req.body.post_text,
     user_id: req.session.passport.user.id,
   })
