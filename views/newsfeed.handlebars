@@ -2,16 +2,18 @@
   {{#if loggedIn}}
   <section id="new-post" class="center col-12  col-lg-3">
     <div>
-      <input type="text" placeholder="Enter text here to create a new post" name="post-text" id="post-text"/>
+      <input type="text" placeholder="What's on your mind" name="post-text" id="post-text"/>
       <button type="submit">Post</button>  
     </div>
   </section>
-  {{/if}}
-  {{#each posts as |post|}}
+  {{/if}}  
+  
   <section class="center">
+    <h3 class="center"> News Feed</h3>
+    {{#each posts as |post|}}
     {{> post-info post }}
-  </section>
   {{/each}}
+  </section>
 </div>
 
 <script src="/javascript/add-post.js"></script>

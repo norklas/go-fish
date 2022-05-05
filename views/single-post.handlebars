@@ -1,1 +1,11 @@
-{{> post-info post }}
+<article class="center">
+  <h6>{{user.username}}</h6>
+  <p>{{post_text}}</p>
+  <h6>{{vote_count}} {{format_plural "vote" vote_count}}  &centerdot;  {{comments.length}} {{format_plural "comment" comments.length}}  &centerdot;  Posted on {{format_date created_at}}</h6>
+  {{#each comments as |comment|}}
+  <div>
+    <h6>{{comment.username}}</h6>
+    <p>{{comment.comment_text}}</p>
+  </div>
+  {{/each}}
+</article>
