@@ -82,3 +82,14 @@ background: var(--tertiary-color);
 #new-post div input {
   height: 180px;
 }
+
+.rounded {
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.column {
+  flex-direction: column;
+  display: flex;
+  width: fit-content;
+}
