@@ -11,7 +11,7 @@ async function signupFormHandler(event) {
   if (password != confirmPassword) {
     alert("Password and confirm password must match");
   } else if (email && password && confirmPassword && username) {
-    const response = await fetch("/api/users", {
+    const response = await fetch("/api/users/", {
       method: "POST",
       body: JSON.stringify({
         username,
@@ -23,6 +23,7 @@ async function signupFormHandler(event) {
 
     if (response.ok) {
       console.log(`User ${username} created`);
+      document.location.replace("/login");
     } else {
       alert(response.statusText);
     }

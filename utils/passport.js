@@ -1,5 +1,6 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcrypt");
 const { User } = require("../models");
 
 // resources used for Passport coding
@@ -27,9 +28,10 @@ passport.use(
       }
 
       if (!user) {
-        return done(null, false, { message: "Incorrect email!" });
+        alert("User not found");
+        return done(null, false);
       } else if (!verify) {
-        return done(null, false, { message: "Incorrect password!" });
+        return done(null, false);
       }
       return done(null, user);
     }

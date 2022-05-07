@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
   Post.findAll({
     attributes: [
       "id",
+
       "post_text",
       "created_at",
       [
@@ -54,10 +55,10 @@ router.get("/", (req, res) => {
 
 // placeholder redirect route, redirects to homepage once they log in. will not work until we get session implemented
 router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/newsfeed");
-    return;
-  }
+  // if (req.session.loggedIn) {
+  //   res.redirect("/newsfeed");
+  //   return;
+  // }
   res.render("login");
 });
 

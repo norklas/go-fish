@@ -22,24 +22,23 @@
                 <a href="/"><img class="img-logo" src="/img/go-fish.png" alt="logo"></a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav">
-                        {{#unless loggedIn}}
+                        {{#if loggedIn}}
+                        <li class="nav-item">
+                            <button id="logoutBtn" class="nav-link">Logout</button>
+                        </li>
+                        {{else}}
                         <li class="nav-item">
                             <a class="nav-link" href="/login">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/signup">Sign Up</a>
                         </li>
-                        {{/unless}}
-                        {{#if loggedIn}}
-                        <li class="nav-item">
-                            <button id="logoutBtn" class="nav-link">Logout</button>
-                        </li>
                         {{/if}}
                     </ul>
                 </div>
                 <form class="d-flex" id="search-form">
-                    <input class="form-control me-2" type="search" name="search-text" placeholder="Search"
-                        aria-label="Search">
+                    <input type="text" class="form-control me-2" id="search-input" name="search-text"
+                        placeholder="Search" aria-label="Search">
                     <button type="submit" id="search-btn">Go</button>
                 </form>
             </div>

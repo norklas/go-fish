@@ -46,8 +46,16 @@ router.get("/:post_text", (req, res) => {
         return;
       }
 
+      // defining loggenIn using loginStatus
+      let loginStatus;
+      if (typeof req.session.passport != "undefined") {
+        loginStatus = req.session.passport.user;
+      } else {
+        loginStatus = false;
+      }
+
       const posts = dbSearchData.map((post) => post.get({ plain: true }));
-      res.render("search", { posts }); // again we should check loggedIn status here if we want to
+      res.render("search", { posts, loggedIn: loginStatus }); // again we should check loggedIn status here if we want to
     })
     .catch((err) => {
       console.log(err);
