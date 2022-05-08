@@ -141,7 +141,8 @@ input[name="comment-body"]::-webkit-input-placeholder {
 
 #email-signup,
 #password-signup,
-#username-signup {
+#username-signup,
+#confirmPassword-signup {
   background-color: var(--tertiary-color);
 }
 
