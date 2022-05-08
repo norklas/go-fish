@@ -1,0 +1,19 @@
+<div class="comments shadow">
+  {{#each this}}
+  <div class="card-body text-white">
+    <div class="row">
+      <div class="col-12">
+        <div class="meta">
+          <a href="/user/{{id}}" target="_blank" class="text-warning"
+            style="text-decoration: none">{{user.username}}</a>
+        </div>
+        <div class="text">
+          {{comment_text}}<br>
+          Posted on {{format_date created_at}}
+          <br></br>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

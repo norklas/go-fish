@@ -1,0 +1,35 @@
+<a href="/" style="text-decoration: none" id="back-newsfeed"> &larr; Back to Newsfeed</a>
+
+<!-- displaying articles -->
+<article class="d-flex justify-content-center">
+  {{> single-info post}}
+</article>
+
+{{#if loggedIn}}
+<form class="comment-form row justify-content-center">
+  <div class="col-9">
+    <input name="comment-body" class="form-control border-none shadow" placeholder="I would like to say.."
+      id="comment-input"></textarea>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="my-2 rounded p-2 px-4 shadow" id="add-comment-btn"> Add Comment
+    </button>
+  </div>
+</form>
+{{/if}}
+
+<article class="d-flex justify-content-center mb-3" id="comment-container">
+  <div class="container-comments rounded shadow" id="comment-card">
+    <div class="row">
+      <div class="col-12">
+        {{> comments post.comments}}
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/like.js"></script>
