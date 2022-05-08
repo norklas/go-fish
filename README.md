@@ -1,5 +1,5 @@
 
-# Go Fish <img src="./public/img/go-fish.png" alt="Go Fish logo" style="width:30px; margin-left: 15px;"/>
+# Go Fish 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <img src="./public/img/go-fish.png" alt="Go Fish logo" style="width:100px;"/>
@@ -14,7 +14,7 @@ Go Fish is a content management system for beginning, intermediate, or avid fish
 
 ## Installation<a id='installation'></a>
 
-No installation required! Visit us [here](https://INSERT_HEROKU_URL_HERE.com) to get started.  Happy angling!!!
+No installation required! Visit us [here](https://go-fish-project-two.herokuapp.com/) to get started.  Happy angling!!!
 
 ## Usage<a id='usage'></a>
 
