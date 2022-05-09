@@ -8,7 +8,6 @@ router.get("/", (req, res) => {
   Post.findAll({
     attributes: [
       "id",
-
       "post_text",
       "created_at",
       [
@@ -18,6 +17,7 @@ router.get("/", (req, res) => {
         "vote_count",
       ],
     ],
+    order: [["created_at", "DESC"]],
     include: [
       {
         model: Comment,
