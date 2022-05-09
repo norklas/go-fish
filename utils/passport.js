@@ -28,10 +28,9 @@ passport.use(
       }
 
       if (!user) {
-        alert("User not found");
-        return done(null, false);
+        return done(null, false, { message: "Incorrect email!" });
       } else if (!verify) {
-        return done(null, false);
+        return done(null, false, { message: "Incorrect password!" });
       }
       return done(null, user);
     }
