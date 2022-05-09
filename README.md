@@ -30,4 +30,4 @@ The following image shows the homepage:
 ## Credits<a id='credits'></a>
 Contributors to this project were [Nick](https://github.com/norklas), [Matt](https://github.com/noreikam), and [Trey](https://github.com/JustTrey12) and [Ken](https://github.com/KennethHollis).
 
-Technologies used included [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/), [MySQL](https://www.mysql.com/), [Seuelize](https://sequelize.org/v5/), [Handlebars](https://handlebarsjs.com/), [JavaScript](https://www.javascript.com/), [Canva](https://www.canva.com/q/pro/), [Passport](https://www.npmjs.com/package/passport) and [Heroku](https://dashboard.heroku.com/apps).
+Technologies used included [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/), [MySQL](https://www.mysql.com/), [Sequelize](https://sequelize.org/v5/), [Handlebars](https://handlebarsjs.com/), [JavaScript](https://www.javascript.com/), [Canva](https://www.canva.com/q/pro/), [Passport](https://www.npmjs.com/package/passport) and [Heroku](https://dashboard.heroku.com/apps).
