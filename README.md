@@ -14,7 +14,7 @@ Go Fish is a content management system for beginning, intermediate, or avid fish
 
 ## Installation<a id='installation'></a>
 
-No installation required! Visit us [here](https://go-fish-project-two.herokuapp.com/) to get started.  Happy angling!!!
+No installation required! Visit us [here](https://go-fish.up.railway.app/) to get started.  Happy angling!!!
 
 ## Usage<a id='usage'></a>
 
